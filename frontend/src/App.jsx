@@ -353,7 +353,7 @@ export default function BVEDashboard() {
             {phase==="converting" &&
               <div style={{ display:"flex", alignItems:"center", gap:8, color:T.m2, fontSize:13, fontWeight:500 }}>
                 <span style={{ animation:"spin 1s linear infinite",display:"inline-block" }}>⚙</span>
-                Converting via Claude…
+                Converting Json into KG…
               </div>}
             {kgData && (
               <>
