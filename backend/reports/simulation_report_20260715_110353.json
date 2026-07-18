@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "graph_validation": {
+    "is_valid": true,
+    "issues": [],
+    "duplicate_nodes": [],
+    "undefined_refs": [],
+    "orphan_nodes": [],
+    "unreachable": [],
+    "cycles": [],
+    "deadlocked": [],
+    "cycle_summary": [],
+    "is_dag": true
+  },
+  "execution_timeline": [
+    {
+      "step": 1,
+      "event": "E001",
+      "virtual_start": 0.0,
+      "virtual_end": 10.0,
+      "device_states": {},
+      "triggered": [
+        "E002"
+      ]
+    },
+    {
+      "step": 2,
+      "event": "E005",
+      "virtual_start": 0.0,
+      "virtual_end": 30.0,
+      "device_states": {},
+      "triggered": []
+    },
+    {
+      "step": 3,
+      "event": "E002",
+      "virtual_start": 0.0,
+      "virtual_end": 5.0,
+      "device_states": {},
+      "triggered": []
+    },
+    {
+      "step": 4,
+      "event": "E006",
+      "virtual_start": 0.0,
+      "virtual_end": 0.0,
+      "device_states": {},
+      "triggered": []
+    },
+    {
+      "step": 5,
+      "event": "E003",
+      "virtual_start": 30.0,
+      "virtual_end": 32.0,
+      "device_states": {},
+      "triggered": []
+    },
+    {
+      "step": 6,
+      "event": "E004",
+      "virtual_start": 32.0,
+      "virtual_end": 47.0,
+      "device_states": {},
+      "triggered": [
+        "E005"
+      ]
+    }
+  ],
+  "simulation_logs": [
+    "[Step 01] T=0.000s  Event=E001  Dur=10.00s  End=10.000s  Device=\u2014\u2192\u2014  Triggers=['E002']",
+    "[Step 02] T=0.000s  Event=E005  Dur=30.00s  End=30.000s  Device=\u2014\u2192\u2014  Triggers=[]",
+    "[Step 03] T=0.000s  Event=E002  Dur=5.00s  End=5.000s  Device=\u2014\u2192\u2014  Triggers=[]",
+    "[Step 04] T=0.000s  Event=E006  Dur=0.00s  End=0.000s  Device=\u2014\u2192\u2014  Triggers=[]",
+    "[Step 05] T=30.000s  Event=E003  Dur=2.00s  End=32.000s  Device=\u2014\u2192\u2014  Triggers=[]",
+    "[Step 06] T=32.000s  Event=E004  Dur=15.00s  End=47.000s  Device=\u2014\u2192\u2014  Triggers=['E005']"
+  ],
+  "violation_report": [],
+  "root_cause_trace": [],
+  "scenario_coverage": {
+    "E001": true,
+    "E002": true,
+    "E003": true,
+    "E004": true,
+    "E005": true,
+    "E006": true
+  },
+  "behaviour_validation": "All events executed with no violations. DFS/BFS: 1 paths, 0 fault(s), 100.0% coverage.",
+  "error_traceability": []
+}

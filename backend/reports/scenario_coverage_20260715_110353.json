@@ -1,0 +1,27 @@
+{
+  "total_paths": 1,
+  "fault_paths": 0,
+  "coverage_pct": 100.0,
+  "covered_nodes": [
+    "E001",
+    "E002",
+    "E003",
+    "E004",
+    "E005",
+    "E006"
+  ],
+  "paths": [
+    {
+      "path": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006"
+      ],
+      "is_fault": false,
+      "reason": ""
+    }
+  ]
+}

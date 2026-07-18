@@ -1,0 +1,19 @@
+============================================================
+BIW BEHAVIOURAL VALIDATION ENGINE — REPORT
+WO-20260609-001
+============================================================
+Status    : PASS
+DAG       : True
+Valid     : True
+
+Summary   : All events executed with no violations. DFS/BFS: 1 paths, 0 fault(s), 100.0% coverage.
+
+── EXECUTION TIMELINE ──────────────────────────────────
+  Step 01 | E001                     T=0.000→10.000s
+  Step 02 | E005                     T=0.000→30.000s
+  Step 03 | E002                     T=0.000→5.000s
+  Step 04 | E006                     T=0.000→0.000s
+  Step 05 | E003                     T=30.000→32.000s
+  Step 06 | E004                     T=32.000→47.000s
+
+============================================================

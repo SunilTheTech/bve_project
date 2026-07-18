@@ -1,0 +1,65 @@
+{
+  "devices": [
+    { "id": "Panel1",   "type": "workpiece"        },
+    { "id": "Clamp1",   "type": "clamp"            },
+    { "id": "Sensor1",  "type": "proximity_sensor" },
+    { "id": "Robot1",   "type": "robot"            },
+    { "id": "WeldGun1", "type": "welder"           }
+  ],
+  "states": [
+    { "device": "Clamp1",   "state": "OPEN"    },
+    { "device": "Clamp1",   "state": "CLOSING" },
+    { "device": "Clamp1",   "state": "CLOSED"  },
+    { "device": "Robot1",   "state": "IDLE"    },
+    { "device": "Robot1",   "state": "MOVING"  },
+    { "device": "Robot1",   "state": "WELDING" },
+    { "device": "Sensor1",  "state": "FALSE"   },
+    { "device": "Sensor1",  "state": "TRUE"    }
+  ],
+  "events": [
+    { "id": "PanelLoaded"  },
+    { "id": "SensorDetect" },
+    { "id": "ClampClose"   },
+    { "id": "ClampClosed"  },
+    { "id": "RobotStart"   },
+    { "id": "WeldStart"    },
+    { "id": "WeldEnd"      }
+  ],
+  "relationships": [
+    { "from": "PanelLoaded",  "to": "SensorDetect", "type": "enables"         },
+    { "from": "SensorDetect", "to": "ClampClose",   "type": "enables"         },
+    { "from": "ClampClose",   "to": "ClampClosed",  "type": "precedes"        },
+    { "from": "ClampClosed",  "to": "RobotStart",   "type": "enables"         },
+    { "from": "RobotStart",   "to": "WeldStart",    "type": "enables"         },
+    { "from": "WeldStart",    "to": "WeldEnd",      "type": "precedes"        },
+    { "from": "ClampClose",   "to": "WeldStart",    "type": "has_constraint",
+      "constraint": "ClampForce >= WeldForce"                                  },
+    { "from": "WeldStart",    "to": "WeldEnd",      "type": "has_duration",
+      "duration": 0.8                                                          }
+  ],
+  "timing": [
+    { "event": "ClampClose", "duration": 2.3 },
+    { "event": "RobotStart", "duration": 1.2 },
+    { "event": "WeldStart",  "duration": 0.8 }
+  ],
+  "rules": [
+    {
+      "id":          "Rule1",
+      "description": "Robot must not start before clamp is fully closed",
+      "condition":   "RobotStart requires ClampClosed"
+    },
+    {
+      "id":          "Rule2",
+      "description": "Clamp holding force must be greater than or equal to weld force",
+      "condition":   "ClampForce >= WeldForce"
+    }
+  ],
+  "device_specs": [
+    { "device": "Clamp1",   "ClampForce": 5000 },
+    { "device": "WeldGun1", "WeldForce":  4000 }
+  ],
+  "resources": [
+    { "id": "RobotArm1", "type": "robot_arm", "capacity": 1 },
+    { "id": "WeldCell1", "type": "weld_cell",  "capacity": 1 }
+  ]
+}
