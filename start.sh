@@ -22,7 +22,7 @@ if [ ! -f "$BACKEND/.env" ]; then
   echo -e "${YELLOW}⚙  backend/.env not found — creating a default one…${NC}"
   cat > "$BACKEND/.env" <<'EOF'
 OLLAMA_HOST=http://localhost:11434
-OLLAMA_MODEL=llama3.2:3b
+OLLAMA_MODEL=llama3.1
 OLLAMA_TIMEOUT=120
 EOF
   echo -e "${GREEN}✓  Wrote backend/.env with default Ollama settings${NC}"
